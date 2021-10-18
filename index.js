@@ -25,7 +25,7 @@ const enamendHTML = (engineer) =>
             <ul class="list-group">
             <li class="list-group-item">ID ${engineer.id}</li>
             <li class="list-group-item"><a href="mailto:${engineer.email}">Email: ${engineer.name}</a></li>
-            <li class="list-group-item"><a href="https://github.com/${engineer.github}" target="_blank" rel="noopener noreferrer">${engineer.github}</a></li>
+            <li class="list-group-item"><a href="${engineer.github}" target="_blank" rel="noopener noreferrer">${engineer.github}</a></li>
             </ul>
         </div>
     </div>
@@ -63,7 +63,7 @@ const generateHTML = (manager) =>
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid blue cursive">
-        <h1>Bad Company</h1>
+        <h1>The Family Business</h1>
         <banner>It's Fine.  Everything's Fine</banner>
     </div>
     <main> 
@@ -195,7 +195,7 @@ function ask() {
     console.log(output);
     const htmlPageContent = generateHTML(manager);
 
-    fs.writeFile('./output/test.html', htmlPageContent, (err) =>
+    fs.writeFile('./output/team.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
     askEngineerIntern()
@@ -208,7 +208,7 @@ function askEngineerIntern() {
         askEngineer();
         } else if (answers.enOrIn === "Intern") {
             askIntern();
-        } else if (answers.enOrIn ===  'Build Site') {
+        } else if (answers.enOrIn ===  'Build Website') {
             endIt();
         }
     });
@@ -217,13 +217,13 @@ function askEngineerIntern() {
     inquirer.prompt(engineerQuestions).then((answers) => {
         output.push(answers);
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.type,"https://github.com" + answers.github)
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.type,"https://github.com/" + answers.github)
         console.log(engineer);
         //console.log("Your favorite TV Shows:", output.join(", "));
         console.log(output);
         const htmlEnContent = enamendHTML(engineer);
 
-    fs.appendFile('./output/test.html', htmlEnContent, (err) =>
+    fs.appendFile('./output/team.html', htmlEnContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
         askEngineerIntern()
@@ -239,14 +239,14 @@ function askEngineerIntern() {
         console.log(output);
         const htmlInContent = inamendHTML(intern);
 
-    fs.appendFile('./output/test.html', htmlInContent, (err) =>
+    fs.appendFile('./output/team.html', htmlInContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
         askEngineerIntern()
     });
   }
   function endIt(){
-    fs.appendFile('./output/test.html', endHTML, (err) =>
+    fs.appendFile('./output/team.html', endHTML, (err) =>
     err ? console.log(err) : console.log('Successfully ENDED THIS INSANITY index.html!')
     );
   }
