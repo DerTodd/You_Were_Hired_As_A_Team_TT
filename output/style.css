@@ -1,6 +1,77 @@
-.topbc {
-    background-color: red;
+
+.head{
+    background-color: blue;
+    color: white;
+}
+.blue{
+    background-image:radial-gradient(#8C031C, #40010D, #0D0D0D)
+}
+.cursive{
+    font-family: 'Ephesis', cursive;
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 4em;
+    color:whitesmoke;
+}
+
+
+
+/*Code from Kevin Powell's YouTube  "Flexbox design patterns you can use in your project.+ */
+/* https://www.youtube.com/watch?v=vQAvjof1oe4 */
+
+.even-columns {
+    display: flex;
+}
+
+.even-columns > * {
+    flex-basis: 95%;
+    gap: 1em;
+}
+
+.cols {
+    border: none;
+    
+    
+}
+.grid-ish {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+.grid-ish > * {
+    /*flex grow, flex shrink, flex basis, grow default is 0 which is don't grow */
+    flex: 1 1 10em;
+}
+
+.maintext {
+    flex: 1 1 60%;
+    max-width: 76%;
+    margin-left: 1em;
+    display: none;
+}
+button {
+    width: 75%;
+    border-radius: 10%;
+    box-shadow: 5 5 5 gray;
+    background-color: #9177F2;
+    padding: 0 1em 0 1em;
+    text-align: center;
+}
+body {
+    background-image: linear-gradient(33deg, #8C030E, #0D0D0D);
+}
+/*Color for the cards*/
+.clr {
+    background-image: linear-gradient(45deg, #8C030E, #0D0D0D);
+    color: whitesmoke;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-bottom: .5em;
+    border: 1px solid black;
+    border-radius: 15px;
+    max-width: 20em;
+    min-width: 20em;
+    box-shadow: 5px 10px 10px gray;
+    margin-left: 1em;
+}
+li {
+    color: black;
 }
